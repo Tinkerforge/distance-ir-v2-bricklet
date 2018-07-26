@@ -1,7 +1,7 @@
 /* distance-ir-v2-bricklet
  * Copyright (C) 2018 Olaf Lüke <olaf@tinkerforge.com>
  *
- * config.h: All configurations for Distance IR Bricklet 2.0
+ * config_distance.h: Config for ADC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,25 +19,19 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#ifndef CONFIG_GENERAL_H
-#define CONFIG_GENERAL_H
+#ifndef CONFIG_DISTANCE_H
+#define CONFIG_DISTANCE_H
 
-#include "xmc_device.h"
+#include "xmc_gpio.h"
 
-#define STARTUP_SYSTEM_INIT_ALREADY_DONE
-#define SYSTEM_TIMER_FREQUENCY 1000 // Use 1 kHz system timer
+#define DISTANCE_ADC_PIN          P2_1
+#define DISTANCE_ADC_CHANNEL      6
+#define DISTANCE_ADC_RESULT_REG   10
 
-#define UARTBB_TX_PIN P1_1
+#define DISTANCE_ADC_IRQ          15
+#define DISTANCE_ADC_IRQ_PRIORITY 0
 
-#define FIRMWARE_VERSION_MAJOR 2
-#define FIRMWARE_VERSION_MINOR 0
-#define FIRMWARE_VERSION_REVISION 0
-
-#define MOVING_AVERAGE_TYPE MOVING_AVERAGE_TYPE_UINT32
-#define MOVING_AVERAGE_SUM_TYPE MOVING_AVERAGE_TYPE_UINT32
-#define MOVING_AVERAGE_MAX_LENGTH 1000
-#define MOVING_AVERAGE_DEFAULT_LENGTH 25 
-
-#include "config_custom_bootloader.h"
+#define DISTANCE_LED_PIN          P1_0
+#define DISTANCE_LED_CCU4_SLICE   0
 
 #endif

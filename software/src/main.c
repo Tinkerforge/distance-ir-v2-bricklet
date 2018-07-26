@@ -28,15 +28,18 @@
 #include "bricklib2/hal/system_timer/system_timer.h"
 #include "bricklib2/logging/logging.h"
 #include "communication.h"
+#include "distance.h"
 
 int main(void) {
 	logging_init();
 	logd("Start Distance IR Bricklet 2.0\n\r");
 
 	communication_init();
+	distance_init();
 
 	while(true) {
 		bootloader_tick();
 		communication_tick();
+		distance_tick();
 	}
 }

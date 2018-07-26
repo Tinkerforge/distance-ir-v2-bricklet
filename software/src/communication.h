@@ -40,6 +40,15 @@ void communication_init(void);
 #define DISTANCE_IR_V2_THRESHOLD_OPTION_SMALLER '<'
 #define DISTANCE_IR_V2_THRESHOLD_OPTION_GREATER '>'
 
+#define DISTANCE_IR_V2_DISTANCE_LED_CONFIG_OFF 0
+#define DISTANCE_IR_V2_DISTANCE_LED_CONFIG_ON 1
+#define DISTANCE_IR_V2_DISTANCE_LED_CONFIG_SHOW_HEARTBEAT 2
+#define DISTANCE_IR_V2_DISTANCE_LED_CONFIG_SHOW_DISTANCE 3
+
+#define DISTANCE_IR_V2_SENSOR_TYPE_2Y0A41 0
+#define DISTANCE_IR_V2_SENSOR_TYPE_2Y0A21 1
+#define DISTANCE_IR_V2_SENSOR_TYPE_2Y0A02 2
+
 #define DISTANCE_IR_V2_BOOTLOADER_MODE_BOOTLOADER 0
 #define DISTANCE_IR_V2_BOOTLOADER_MODE_FIRMWARE 1
 #define DISTANCE_IR_V2_BOOTLOADER_MODE_BOOTLOADER_WAIT_FOR_REBOOT 2
@@ -62,21 +71,79 @@ void communication_init(void);
 #define FID_GET_DISTANCE 1
 #define FID_SET_DISTANCE_CALLBACK_CONFIGURATION 2
 #define FID_GET_DISTANCE_CALLBACK_CONFIGURATION 3
+#define FID_GET_ANALOG_VALUE 5
+#define FID_SET_ANALOG_VALUE_CALLBACK_CONFIGURATION 6
+#define FID_GET_ANALOG_VALUE_CALLBACK_CONFIGURATION 7
+#define FID_SET_MOVING_AVERAGE_CONFIGURATION 9
+#define FID_GET_MOVING_AVERAGE_CONFIGURATION 10
+#define FID_SET_DISTANCE_LED_CONFIG 11
+#define FID_GET_DISTANCE_LED_CONFIG 12
+#define FID_SET_SENSOR_TYPE 13
+#define FID_GET_SENSOR_TYPE 14
 
 #define FID_CALLBACK_DISTANCE 4
+#define FID_CALLBACK_ANALOG_VALUE 8
 
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t moving_average_length;
+} __attribute__((__packed__)) SetMovingAverageConfiguration;
+
+typedef struct {
+	TFPMessageHeader header;
+} __attribute__((__packed__)) GetMovingAverageConfiguration;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t moving_average_length;
+} __attribute__((__packed__)) GetMovingAverageConfiguration_Response;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t config;
+} __attribute__((__packed__)) SetDistanceLEDConfig;
+
+typedef struct {
+	TFPMessageHeader header;
+} __attribute__((__packed__)) GetDistanceLEDConfig;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t config;
+} __attribute__((__packed__)) GetDistanceLEDConfig_Response;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t sensor;
+} __attribute__((__packed__)) SetSensorType;
+
+typedef struct {
+	TFPMessageHeader header;
+} __attribute__((__packed__)) GetSensorType;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t sensor;
+} __attribute__((__packed__)) GetSensorType_Response;
 
 
 // Function prototypes
-
+BootloaderHandleMessageResponse set_moving_average_configuration(const SetMovingAverageConfiguration *data);
+BootloaderHandleMessageResponse get_moving_average_configuration(const GetMovingAverageConfiguration *data, GetMovingAverageConfiguration_Response *response);
+BootloaderHandleMessageResponse set_distance_led_config(const SetDistanceLEDConfig *data);
+BootloaderHandleMessageResponse get_distance_led_config(const GetDistanceLEDConfig *data, GetDistanceLEDConfig_Response *response);
+BootloaderHandleMessageResponse set_sensor_type(const SetSensorType *data);
+BootloaderHandleMessageResponse get_sensor_type(const GetSensorType *data, GetSensorType_Response *response);
 
 // Callbacks
 bool handle_distance_callback(void);
+bool handle_analog_value_callback(void);
 
 #define COMMUNICATION_CALLBACK_TICK_WAIT_MS 1
-#define COMMUNICATION_CALLBACK_HANDLER_NUM 1
+#define COMMUNICATION_CALLBACK_HANDLER_NUM 2
 #define COMMUNICATION_CALLBACK_LIST_INIT \
 	handle_distance_callback, \
+	handle_analog_value_callback, \
 
 
 #endif
