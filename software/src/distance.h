@@ -50,7 +50,7 @@ typedef struct {
 } Distance;
 
 extern Distance distance;
-extern uint16_t distance_lookup[DISTANCE_SENSOR_NUM][DISTANCE_LOOKUP_SIZE];
+extern const uint16_t distance_lookup[DISTANCE_SENSOR_NUM][DISTANCE_LOOKUP_SIZE];
 
 void distance_init(void);
 void distance_tick(void);
