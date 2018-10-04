@@ -86,7 +86,7 @@ void communication_init(void);
 
 typedef struct {
 	TFPMessageHeader header;
-	uint8_t moving_average_length;
+	uint16_t moving_average_length;
 } __attribute__((__packed__)) SetMovingAverageConfiguration;
 
 typedef struct {
@@ -95,7 +95,7 @@ typedef struct {
 
 typedef struct {
 	TFPMessageHeader header;
-	uint8_t moving_average_length;
+	uint16_t moving_average_length;
 } __attribute__((__packed__)) GetMovingAverageConfiguration_Response;
 
 typedef struct {
