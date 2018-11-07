@@ -12,10 +12,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
                                           // Don't use device before ipcon is connected.
 
-    // Create receiver for distance events.
-    let distance_receiver = dir.get_distance_receiver();
+    let distance_receiver = dir.get_distance_callback_receiver();
 
-    // Spawn thread to handle received events. This thread ends when the `dir` object
+    // Spawn thread to handle received callback messages.
+    // This thread ends when the `dir` object
     // is dropped, so there is no need for manual cleanup.
     thread::spawn(move || {
         for distance in distance_receiver {
