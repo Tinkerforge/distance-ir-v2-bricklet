@@ -1,21 +1,21 @@
 use std::{error::Error, io};
 
-use tinkerforge::{distance_ir_v2_bricklet::*, ipconnection::IpConnection};
+use tinkerforge::{distance_ir_v2_bricklet::*, ip_connection::IpConnection};
 
-const HOST: &str = "127.0.0.1";
+const HOST: &str = "localhost";
 const PORT: u16 = 4223;
-const UID: &str = "XYZ"; // Change XYZ to the UID of your Distance IR Bricklet 2.0
+const UID: &str = "XYZ"; // Change XYZ to the UID of your Distance IR Bricklet 2.0.
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let ipcon = IpConnection::new(); // Create IP connection
-    let distance_ir_v2_bricklet = DistanceIRV2Bricklet::new(UID, &ipcon); // Create device object
+    let ipcon = IpConnection::new(); // Create IP connection.
+    let dir = DistanceIrV2Bricklet::new(UID, &ipcon); // Create device object.
 
-    ipcon.connect(HOST, PORT).recv()??; // Connect to brickd
-                                        // Don't use device before ipcon is connected
+    ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
+                                          // Don't use device before ipcon is connected.
 
-    // Get current distance
-    let distance = distance_ir_v2_bricklet.get_distance().recv()?;
-    println!("Distance: {}{}", distance as f32 / 10.0, " cm");
+    // Get current distance.
+    let distance = dir.get_distance().recv()?;
+    println!("Distance: {} cm", distance as f32 / 10.0);
 
     println!("Press enter to exit.");
     let mut _input = String::new();
