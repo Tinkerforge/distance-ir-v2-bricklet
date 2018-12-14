@@ -19,7 +19,7 @@ func main() {
 	// Don't use device before ipcon is connected.
 
 	dir.RegisterDistanceCallback(func(distance uint16) {
-		fmt.Printf("Distance: %d cm\n", float64(distance)/10.0)
+		fmt.Printf("Distance: %f cm\n", float64(distance)/10.0)
 	})
 
 	// Set period for distance callback to 1s (1000ms) without a threshold.

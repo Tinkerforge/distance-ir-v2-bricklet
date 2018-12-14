@@ -19,7 +19,7 @@ func main() {
 	// Don't use device before ipcon is connected.
 
 	dir.RegisterDistanceCallback(func(distance uint16) {
-		fmt.Printf("Distance: %d cm\n", float64(distance)/10.0)
+		fmt.Printf("Distance: %f cm\n", float64(distance)/10.0)
 	})
 
 	// Configure threshold for distance "smaller than 30 cm"
