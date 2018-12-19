@@ -11,7 +11,7 @@ from __future__ import print_function
 filename = '2Y0A02.txt'
 
 NUM_VALUES = 512
-DIVIDER = 2**12/NUM_VALUES
+DIVIDER = 2**12//NUM_VALUES
 
 class NaturalSpline(object):
     def __init__(self):
@@ -125,10 +125,10 @@ def sample_interpolate(x, y):
     for X in px:
         py.append(spline.get_value(X))
 
-    for i in range(x[0]/DIVIDER):
+    for i in range(x[0]//DIVIDER):
         py[i] = y[0]
 
-    for i in range(x[-1]/DIVIDER, 2**12/DIVIDER):
+    for i in range(x[-1]//DIVIDER, 2**12//DIVIDER):
         py[i] = y[-1]
 
     for i in range(len(py)):
@@ -146,7 +146,7 @@ def sample_interpolate(x, y):
 x = []
 y = []
 
-with open(filename, 'rb') as f:
+with open(filename, 'r') as f:
     for line in f:
         c = line.find('#')
         if c != -1:
