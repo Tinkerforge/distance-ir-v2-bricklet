@@ -6,12 +6,16 @@
 
 from __future__ import print_function
 
-#filename = '2Y0A41.txt'
-#filename = '2Y0A21.txt'
-filename = '2Y0A02.txt'
+# Filename
+filename = '2Y0A02.txt' # '2Y0A41.txt' / '2Y0A21.txt' / '2Y0A02.txt'
+
+# Number of bits of input values
+ANALOG_BITS = 12
+
+
 
 NUM_VALUES = 512
-DIVIDER = 2**12//NUM_VALUES
+DIVIDER = (2**ANALOG_BITS)//NUM_VALUES
 
 class NaturalSpline(object):
     def __init__(self):
@@ -119,7 +123,7 @@ def sample_interpolate(x, y):
 
     spline.set_points(points)
 
-    px = range(0, 2**12, DIVIDER)
+    px = range(0, 2**ANALOG_BITS, DIVIDER)
     py = []
 
     for X in px:
