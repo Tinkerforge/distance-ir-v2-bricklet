@@ -132,7 +132,7 @@ def sample_interpolate(x, y):
     for i in range(x[0]//DIVIDER):
         py[i] = y[0]
 
-    for i in range(x[-1]//DIVIDER, 2**12//DIVIDER):
+    for i in range(x[-1]//DIVIDER, 2**ANALOG_BITS//DIVIDER):
         py[i] = y[-1]
 
     for i in range(len(py)):
