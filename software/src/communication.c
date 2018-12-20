@@ -120,7 +120,7 @@ BootloaderHandleMessageResponse get_distance_led_config(const GetDistanceLEDConf
 }
 
 BootloaderHandleMessageResponse set_sensor_type(const SetSensorType *data) {
-	if(data->sensor > DISTANCE_IR_V2_SENSOR_TYPE_2Y0A02) {
+	if(data->sensor >= DISTANCE_SENSOR_NUM) {
 		return HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER;
 	}
 
