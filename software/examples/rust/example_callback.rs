@@ -1,8 +1,5 @@
-use std::{io, error::Error};
-use std::thread;
-use tinkerforge::{ip_connection::IpConnection, 
-                  distance_ir_v2_bricklet::*};
-
+use std::{error::Error, io, thread};
+use tinkerforge::{distance_ir_v2_bricklet::*, ip_connection::IpConnection};
 
 const HOST: &str = "localhost";
 const PORT: u16 = 4223;
@@ -13,21 +10,21 @@ fn main() -> Result<(), Box<dyn Error>> {
     let dir = DistanceIrV2Bricklet::new(UID, &ipcon); // Create device object.
 
     ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
-    // Don't use device before ipcon is connected.
+                                          // Don't use device before ipcon is connected.
 
-     let distance_receiver = dir.get_distance_callback_receiver();
+    let distance_receiver = dir.get_distance_callback_receiver();
 
-        // Spawn thread to handle received callback messages. 
-        // This thread ends when the `dir` object
-        // is dropped, so there is no need for manual cleanup.
-        thread::spawn(move || {
-            for distance in distance_receiver {           
-                		println!("Distance: {} cm", distance as f32 /10.0);
-            }
-        });
+    // Spawn thread to handle received callback messages.
+    // This thread ends when the `dir` object
+    // is dropped, so there is no need for manual cleanup.
+    thread::spawn(move || {
+        for distance in distance_receiver {
+            println!("Distance: {} cm", distance as f32 / 10.0);
+        }
+    });
 
-		// Set period for distance callback to 1s (1000ms) without a threshold.
-		dir.set_distance_callback_configuration(1000, false, 'x', 0, 0);
+    // Set period for distance callback to 1s (1000ms) without a threshold.
+    dir.set_distance_callback_configuration(1000, false, 'x', 0, 0);
 
     println!("Press enter to exit.");
     let mut _input = String::new();
