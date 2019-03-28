@@ -7,4 +7,4 @@ setup:
 	
 	# Configure threshold for distance "smaller than 30 cm"
 	# with a debounce period of 1s (1000ms)
-	publish '{"period": 1000, "value_has_to_change": false, "option": "smaller", "min": 300, "max": 0}' to tinkerforge/request/distance_ir_v2_bricklet/XYZ/set_distance_callback_configuration  
+	publish '{"period": 1000, "value_has_to_change": false, "option": "smaller", "min": 300, "max": 0}' to tinkerforge/request/distance_ir_v2_bricklet/XYZ/set_distance_callback_configuration

@@ -6,4 +6,4 @@ setup:
 	publish '{"register": true}' to tinkerforge/register/distance_ir_v2_bricklet/XYZ/distance # Register distance callback
 	
 	# Set period for distance callback to 1s (1000ms) without a threshold
-	publish '{"period": 1000, "value_has_to_change": false, "option": "off", "min": 0, "max": 0}' to tinkerforge/request/distance_ir_v2_bricklet/XYZ/set_distance_callback_configuration  
+	publish '{"period": 1000, "value_has_to_change": false, "option": "off", "min": 0, "max": 0}' to tinkerforge/request/distance_ir_v2_bricklet/XYZ/set_distance_callback_configuration

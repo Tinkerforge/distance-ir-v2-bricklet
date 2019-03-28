@@ -3,4 +3,4 @@
 setup:
 	# Get current distance
 	subscribe to tinkerforge/response/distance_ir_v2_bricklet/XYZ/get_distance
-	publish '' to tinkerforge/request/distance_ir_v2_bricklet/XYZ/get_distance 
+	publish '' to tinkerforge/request/distance_ir_v2_bricklet/XYZ/get_distance
