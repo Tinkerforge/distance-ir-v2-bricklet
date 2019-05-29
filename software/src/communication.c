@@ -115,6 +115,7 @@ BootloaderHandleMessageResponse set_distance_led_config(const SetDistanceLEDConf
 
 BootloaderHandleMessageResponse get_distance_led_config(const GetDistanceLEDConfig *data, GetDistanceLEDConfig_Response *response) {
 	response->header.length = sizeof(GetDistanceLEDConfig_Response);
+	response->config        = distance.led.config;
 
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
