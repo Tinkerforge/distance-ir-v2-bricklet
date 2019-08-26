@@ -1,36 +1,6 @@
-EESchema Schematic File Version 2
-LIBS:tinkerforge
-LIBS:power
-LIBS:device
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
+EESchema Schematic File Version 4
 LIBS:distance-ir-v2-cache
-EELAYER 25 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -48,10 +18,10 @@ Text Notes 550  7700 0    40   ~ 0
 Copyright Tinkerforge GmbH 2018.\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.1.\nYou may redistribute and modify this documentation under the terms of the\nCERN OHL v.1.1. (http://ohwr.org/cernohl). This documentation is distributed\nWITHOUT ANY EXPRESS OR IMPLIED WARRANTY, INCLUDING OF\nMERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS FOR A\nPARTICULAR PURPOSE. Please see the CERN OHL v.1.1 for applicable\nconditions\n
 Connection ~ 8350 3250
 Wire Wire Line
-	7400 3250 8850 3250
+	7400 3250 8350 3250
 Connection ~ 8350 3850
 Wire Wire Line
-	8350 3700 8350 3900
+	8350 3700 8350 3850
 Wire Wire Line
 	8600 3150 8850 3150
 Wire Wire Line
@@ -67,7 +37,7 @@ Wire Wire Line
 Wire Wire Line
 	7850 2550 8150 2550
 $Comp
-L C C1
+L distance-ir-v2-rescue:C C1
 U 1 1 4CE1301F
 P 3550 6950
 F 0 "C1" V 3400 6900 50  0000 L CNN
@@ -78,7 +48,7 @@ F 3 "" H 3550 6950 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R2
+L distance-ir-v2-rescue:R R2
 U 1 1 4CA9ACAD
 P 8400 2550
 F 0 "R2" V 8480 2550 50  0000 C CNN
@@ -89,7 +59,7 @@ F 3 "" H 8400 2550 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L CP1 C2
+L distance-ir-v2-rescue:CP1 C2
 U 1 1 4C697C2F
 P 8350 3500
 F 0 "C2" H 8400 3600 50  0000 L CNN
@@ -102,7 +72,7 @@ $EndComp
 Text GLabel 7850 2550 0    47   Output ~ 0
 IN_1
 $Comp
-L GND #PWR01
+L distance-ir-v2-rescue:GND #PWR01
 U 1 1 4C697BDE
 P 8350 3900
 F 0 "#PWR01" H 8350 3900 30  0001 C CNN
@@ -113,7 +83,7 @@ F 3 "" H 8350 3900 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L DRILL U3
+L distance-ir-v2-rescue:DRILL U3
 U 1 1 4C693732
 P 10950 6350
 F 0 "U3" H 11000 6400 60  0001 C CNN
@@ -124,7 +94,7 @@ F 3 "" H 10950 6350 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L DRILL U2
+L distance-ir-v2-rescue:DRILL U2
 U 1 1 4C693727
 P 10950 6150
 F 0 "U2" H 11000 6200 60  0001 C CNN
@@ -137,7 +107,7 @@ $EndComp
 Text GLabel 3450 5450 0    47   Input ~ 0
 IN_1
 $Comp
-L VCC #PWR02
+L distance-ir-v2-rescue:VCC #PWR02
 U 1 1 4C5FD35E
 P 3550 6650
 F 0 "#PWR02" H 3550 6750 30  0001 C CNN
@@ -148,7 +118,7 @@ F 3 "" H 3550 6650 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR03
+L distance-ir-v2-rescue:GND #PWR03
 U 1 1 4C5FD34E
 P 3550 7350
 F 0 "#PWR03" H 3550 7350 30  0001 C CNN
@@ -159,7 +129,7 @@ F 3 "" H 3550 7350 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VCC #PWR04
+L distance-ir-v2-rescue:VCC #PWR04
 U 1 1 4C5FCFB4
 P 2450 850
 F 0 "#PWR04" H 2450 950 30  0001 C CNN
@@ -170,7 +140,7 @@ F 3 "" H 2450 850 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR05
+L distance-ir-v2-rescue:GND #PWR05
 U 1 1 4C5FCF4F
 P 2450 1600
 F 0 "#PWR05" H 2450 1600 30  0001 C CNN
@@ -181,7 +151,7 @@ F 3 "" H 2450 1600 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR06
+L distance-ir-v2-rescue:+5V #PWR06
 U 1 1 5AF98F0F
 P 7400 3150
 F 0 "#PWR06" H 7400 3000 50  0001 C CNN
@@ -194,7 +164,7 @@ $EndComp
 Wire Wire Line
 	7400 3250 7400 3150
 $Comp
-L CON-SENSOR2 P1
+L distance-ir-v2-rescue:CON-SENSOR2 P1
 U 1 1 5AF995A7
 P 1100 1750
 F 0 "P1" H 950 2150 60  0000 C CNN
@@ -205,7 +175,7 @@ F 3 "" H 1200 1600 60  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR07
+L distance-ir-v2-rescue:+5V #PWR07
 U 1 1 5AF99925
 P 1500 850
 F 0 "#PWR07" H 1500 700 50  0001 C CNN
@@ -216,7 +186,7 @@ F 3 "" H 1500 850 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C4
+L distance-ir-v2-rescue:C C4
 U 1 1 5AF9A049
 P 1800 1150
 F 0 "C4" H 1850 1250 50  0000 L CNN
@@ -227,7 +197,7 @@ F 3 "" H 1800 1150 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C5
+L distance-ir-v2-rescue:C C5
 U 1 1 5AF9A1C4
 P 2450 1150
 F 0 "C5" H 2500 1250 50  0000 L CNN
@@ -242,17 +212,17 @@ Wire Wire Line
 Wire Wire Line
 	1600 1650 1600 900 
 Wire Wire Line
-	1600 900  2450 900 
+	1600 900  1800 900 
 Wire Wire Line
-	2450 850  2450 950 
+	2450 850  2450 900 
 Connection ~ 2450 900 
 Wire Wire Line
 	1800 950  1800 900 
 Connection ~ 1800 900 
 Wire Wire Line
-	1450 1550 2450 1550
+	1450 1550 1800 1550
 Wire Wire Line
-	2450 1350 2450 1600
+	2450 1350 2450 1550
 Connection ~ 2450 1550
 Wire Wire Line
 	1800 1350 1800 1550
@@ -262,7 +232,7 @@ Wire Wire Line
 Wire Wire Line
 	1500 1450 1500 850 
 $Comp
-L R_PACK4 RP1
+L distance-ir-v2-rescue:R_PACK4 RP1
 U 1 1 5AF9B0DE
 P 2150 2100
 F 0 "RP1" H 2150 2550 50  0000 C CNN
@@ -273,7 +243,7 @@ F 3 "" H 2150 2100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C3
+L distance-ir-v2-rescue:C C3
 U 1 1 5AF9B18D
 P 1700 2300
 F 0 "C3" H 1750 2400 50  0000 L CNN
@@ -298,7 +268,7 @@ Wire Wire Line
 Wire Wire Line
 	1450 1950 1950 1950
 Wire Wire Line
-	1950 2050 1450 2050
+	1950 2050 1700 2050
 Wire Wire Line
 	1700 2100 1700 2050
 Connection ~ 1700 2050
@@ -307,7 +277,7 @@ Wire Wire Line
 Wire Wire Line
 	1100 2200 1100 2550
 $Comp
-L GND #PWR08
+L distance-ir-v2-rescue:GND #PWR08
 U 1 1 5AF9B925
 P 1700 2550
 F 0 "#PWR08" H 1700 2550 30  0001 C CNN
@@ -318,7 +288,7 @@ F 3 "" H 1700 2550 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR09
+L distance-ir-v2-rescue:GND #PWR09
 U 1 1 5AF9B951
 P 1100 2550
 F 0 "#PWR09" H 1100 2550 30  0001 C CNN
@@ -337,53 +307,53 @@ Wire Wire Line
 Wire Wire Line
 	2350 2050 2800 2050
 $Comp
-L XMC1XXX24 U4
+L distance-ir-v2-rescue:XMC1XXX24 U4
 U 1 1 5AF9BCB3
 P 4050 7000
 F 0 "U4" H 3900 7400 60  0000 C CNN
-F 1 "XMC13XX24" H 4050 6600 60  0000 C CNN
+F 1 "XMC1302" H 4050 6600 60  0000 C CNN
 F 2 "kicad-libraries:QFN24-4x4mm-0.5mm" H 4200 7750 60  0001 C CNN
 F 3 "" H 4200 7750 60  0000 C CNN
 	1    4050 7000
 	1    0    0    -1  
 $EndComp
 $Comp
-L XMC1XXX24 U4
+L distance-ir-v2-rescue:XMC1XXX24 U4
 U 3 1 5AF9BD12
 P 4050 4600
 F 0 "U4" H 3900 4850 60  0000 C CNN
-F 1 "XMC13XX24" H 4050 4350 60  0000 C CNN
+F 1 "XMC1302" H 4050 4350 60  0000 C CNN
 F 2 "kicad-libraries:QFN24-4x4mm-0.5mm" H 4200 5350 60  0001 C CNN
 F 3 "" H 4200 5350 60  0000 C CNN
 	3    4050 4600
 	1    0    0    -1  
 $EndComp
 $Comp
-L XMC1XXX24 U4
+L distance-ir-v2-rescue:XMC1XXX24 U4
 U 4 1 5AF9BD5F
 P 4050 5700
 F 0 "U4" H 3900 6150 60  0000 C CNN
-F 1 "XMC13XX24" H 4050 5250 60  0000 C CNN
+F 1 "XMC1302" H 4050 5250 60  0000 C CNN
 F 2 "kicad-libraries:QFN24-4x4mm-0.5mm" H 4200 6450 60  0001 C CNN
 F 3 "" H 4200 6450 60  0000 C CNN
 	4    4050 5700
 	1    0    0    -1  
 $EndComp
 $Comp
-L XMC1XXX24 U4
+L distance-ir-v2-rescue:XMC1XXX24 U4
 U 2 1 5AF9BDB1
 P 4050 3450
 F 0 "U4" H 3900 4000 60  0000 C CNN
-F 1 "XMC13XX24" H 4050 2900 60  0000 C CNN
+F 1 "XMC1302" H 4050 2900 60  0000 C CNN
 F 2 "kicad-libraries:QFN24-4x4mm-0.5mm" H 4200 4200 60  0001 C CNN
 F 3 "" H 4200 4200 60  0000 C CNN
 	2    4050 3450
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3550 7350 3550 7150
+	3550 7350 3550 7300
 Wire Wire Line
-	3550 6650 3550 6750
+	3550 6650 3550 6700
 Wire Wire Line
 	3700 6700 3550 6700
 Connection ~ 3550 6700
@@ -394,7 +364,7 @@ Wire Wire Line
 	3700 7300 3550 7300
 Connection ~ 3550 7300
 $Comp
-L CONN_01X01 P2
+L distance-ir-v2-rescue:CONN_01X01 P2
 U 1 1 5AF9E3F6
 P 3100 4550
 F 0 "P2" H 3100 4650 50  0000 C CNN
@@ -428,7 +398,7 @@ Wire Wire Line
 Text Notes 1750 3900 0    39   ~ 0
 SPI Slave/CH0\nP0.13 : USIC0_CH0-DX2F : SEL\nP0.14 : USIC0_CH0-DX1A : CLK\nP0.15 : USIC0_CH0-DX0B : MOSI\nP2.0 : USIC0_CH0-DOUT0 : MISO
 $Comp
-L CONN_01X02 P3
+L distance-ir-v2-rescue:CONN_01X02 P3
 U 1 1 5AFA050B
 P 3250 5700
 F 0 "P3" H 3250 5850 50  0000 C CNN
@@ -439,7 +409,7 @@ F 3 "" H 3250 5700 50  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L R R3
+L distance-ir-v2-rescue:R R3
 U 1 1 5AFA05AE
 P 3300 5950
 F 0 "R3" V 3300 5850 50  0000 C CNN
@@ -450,7 +420,7 @@ F 3 "" H 3300 5950 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L LED D1
+L distance-ir-v2-rescue:LED D1
 U 1 1 5AFA110D
 P 2700 5950
 F 0 "D1" H 2700 6050 50  0000 C CNN
@@ -461,7 +431,7 @@ F 3 "" H 2700 5950 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VCC #PWR010
+L distance-ir-v2-rescue:VCC #PWR010
 U 1 1 5AFA12EC
 P 2450 5900
 F 0 "#PWR010" H 2450 6000 30  0001 C CNN
@@ -486,7 +456,7 @@ Wire Wire Line
 Wire Wire Line
 	3600 5750 3600 5800
 $Comp
-L GND #PWR011
+L distance-ir-v2-rescue:GND #PWR011
 U 1 1 5AFA17DD
 P 3600 5800
 F 0 "#PWR011" H 3600 5800 30  0001 C CNN
@@ -508,7 +478,7 @@ NoConn ~ 3700 3300
 Wire Wire Line
 	3700 5450 3450 5450
 $Comp
-L CONN_01X03 P4
+L distance-ir-v2-rescue:CONN_01X03 P4
 U 1 1 5AFA544C
 P 9050 3150
 F 0 "P4" H 9050 3350 50  0000 C CNN
@@ -521,7 +491,7 @@ $EndComp
 Wire Wire Line
 	8850 3050 8700 3050
 $Comp
-L R R4
+L distance-ir-v2-rescue:R R4
 U 1 1 5B18FBF3
 P 3300 4450
 F 0 "R4" V 3300 4350 50  0000 C CNN
@@ -532,7 +502,7 @@ F 3 "" H 3300 4450 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L LED D2
+L distance-ir-v2-rescue:LED D2
 U 1 1 5B18FCCF
 P 2700 4450
 F 0 "D2" H 2700 4550 50  0000 C CNN
@@ -543,7 +513,7 @@ F 3 "" H 2700 4450 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VCC #PWR012
+L distance-ir-v2-rescue:VCC #PWR012
 U 1 1 5B18FD45
 P 2450 4400
 F 0 "#PWR012" H 2450 4500 30  0001 C CNN
@@ -561,4 +531,24 @@ Wire Wire Line
 	2900 4450 3050 4450
 Wire Wire Line
 	3550 4450 3700 4450
+Wire Wire Line
+	8350 3250 8850 3250
+Wire Wire Line
+	8350 3850 8350 3900
+Wire Wire Line
+	2450 900  2450 950 
+Wire Wire Line
+	1800 900  2450 900 
+Wire Wire Line
+	2450 1550 2450 1600
+Wire Wire Line
+	1800 1550 2450 1550
+Wire Wire Line
+	1700 2050 1450 2050
+Wire Wire Line
+	3550 6700 3550 6750
+Wire Wire Line
+	3550 7200 3550 7150
+Wire Wire Line
+	3550 7300 3550 7200
 $EndSCHEMATC
