@@ -9,8 +9,8 @@
 
 void check(int rc, const char* msg);
 
-void example_setup(TF_HalContext *hal);
-void example_loop(TF_HalContext *hal);
+void example_setup(TF_HAL *hal);
+void example_loop(TF_HAL *hal);
 
 
 // Callback function for distance callback
@@ -23,7 +23,7 @@ static void distance_handler(TF_DistanceIRV2 *device, uint16_t distance,
 
 static TF_DistanceIRV2 dir;
 
-void example_setup(TF_HalContext *hal) {
+void example_setup(TF_HAL *hal) {
 	// Create device object
 	check(tf_distance_ir_v2_create(&dir, UID, hal), "create device object");
 
@@ -36,7 +36,7 @@ void example_setup(TF_HalContext *hal) {
 	tf_distance_ir_v2_set_distance_callback_configuration(&dir, 1000, false, 'x', 0, 0);
 }
 
-void example_loop(TF_HalContext *hal) {
+void example_loop(TF_HAL *hal) {
 	// Poll for callbacks
 	tf_hal_callback_tick(hal, 0);
 }
